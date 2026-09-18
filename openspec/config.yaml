@@ -1,0 +1,35 @@
+schema: spec-driven
+
+context: |
+  Language: pt-BR
+  All artifacts must be written in pt-BR.
+  Keep OpenSpec structural headings and SHALL/MUST keywords in English.
+
+  Projeto: mini sistema web "Orbita" usado como base de teste pratico.
+
+  Stack:
+  - React 19 + TypeScript + Vite (SPA, sem backend)
+  - react-router-dom para as 3 rotas: / (Inicio), /relatorio, /certificado
+  - jsPDF para gerar o PDF no navegador
+  - Playwright (@playwright/test) para testes end-to-end em tests/e2e
+
+  Estrutura relevante:
+  - src/brand/brand.ts ...... ponto unico de configuracao da marca (nome, logo
+    completa, icone, arte da marca d'agua, opacidade). Nenhum componente deve
+    importar um arquivo de logo diretamente.
+  - src/assets/brand/ ....... arquivos SVG da marca (logo-full, logo-icon, watermark)
+  - src/components/BrandLogo.tsx ......... escolhe icone ou logo completa
+  - src/components/layout/Sidebar.tsx .... barra lateral retratil
+  - src/components/GeneratePdfButton.tsx . botao central das paginas de conteudo
+  - src/lib/pdf/generatePdf.ts ........... monta o PDF e aplica a marca d'agua
+  - src/lib/pdf/rasterize.ts ............. converte SVG em PNG para o jsPDF
+  - src/hooks/useSidebar.ts .............. estado recolhido/expandido + localStorage
+  - tests/e2e/ ........................... testes Playwright (gerados via codegen)
+
+  Convencoes:
+  - Elementos interativos e regioes verificaveis expoem data-testid
+    (sidebar, sidebar-toggle, brand-logo-icon, brand-logo-full, generate-pdf,
+    nav-inicio, nav-relatorio, nav-certificado, page-inicio, page-relatorio,
+    page-certificado).
+  - Textos de interface em portugues.
+  - Validar com `npm run typecheck` e `npm run build` antes de concluir uma tarefa.

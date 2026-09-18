@@ -1,0 +1,26 @@
+# dependencias
+node_modules/
+
+# build
+dist/
+dist-ssr/
+*.local
+
+# playwright
+test-results/
+playwright-report/
+blob-report/
+playwright/.cache/
+
+# ambiente
+.env
+.env.*
+!.env.example
+
+# editores / sistema
+.DS_Store
+Thumbs.db
+*.log
+.vscode/*
+!.vscode/extensions.json
+.idea/
