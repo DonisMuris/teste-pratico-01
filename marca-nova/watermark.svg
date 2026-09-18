@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 64" width="240" height="64" role="img" aria-label="Vertex">
+  <rect width="64" height="64" rx="16" fill="#0f766e" />
+  <path d="M16 20 L32 46 L48 20" fill="none" stroke="#ffffff" stroke-width="6"
+    stroke-linecap="round" stroke-linejoin="round" />
+  <path d="M24 16 L32 29 L40 16" fill="none" stroke="#ffffff" stroke-width="4"
+    stroke-linecap="round" stroke-linejoin="round" opacity="0.55" />
+  <text x="80" y="34" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="25"
+    font-weight="700" letter-spacing="-0.5" fill="#0f766e">Vertex</text>
+  <text x="81" y="50" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="10.5"
+    letter-spacing="3.6" fill="#0f766e">TECNOLOGIA</text>
+</svg>

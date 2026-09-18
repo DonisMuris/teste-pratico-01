@@ -133,6 +133,11 @@ npm run preview   # http://localhost:4173
 ├── .claude/          # comandos e skills do OpenSpec para o Claude Code
 ├── .agents/          # skills do OpenSpec para o Codex
 ├── .gemini/          # comandos e skills do OpenSpec para o Gemini CLI
+├── marca-nova/       # ARTES DA MARCA NOVA (Vertex) — material do desafio
+│   ├── README.md     # como aplicar a marca nova
+│   ├── logo-full.svg
+│   ├── logo-icon.svg
+│   └── watermark.svg
 ├── openspec/
 │   ├── config.yaml   # contexto do projeto usado pelos agentes
 │   ├── specs/        # especificações do comportamento ATUAL do sistema
@@ -193,6 +198,16 @@ As artes ficam em `src/assets/brand/`:
 | `watermark.svg` | arte aplicada como marca d'água no PDF |
 
 > Nenhum componente importa um arquivo de logo diretamente. Trocar a marca é trocar as artes e os valores desse módulo.
+
+### A marca de destino
+
+As artes da marca **Vertex**, para a qual o sistema deve migrar, estão prontas em **`marca-nova/`** na raiz do projeto. Essa pasta não é lida pela aplicação: ela é o material de entrada do desafio. Veja `marca-nova/README.md` para os detalhes e os cuidados de formato.
+
+| Arquivo em `marca-nova/` | Destino em `src/assets/brand/` |
+| --- | --- |
+| `logo-full.svg` | `logo-full.svg` |
+| `logo-icon.svg` | `logo-icon.svg` |
+| `watermark.svg` | `watermark.svg` |
 
 ---
 
@@ -290,8 +305,10 @@ O objetivo é **trocar a identidade visual do projeto** usando o fluxo do OpenSp
 
 ### O que entregar
 
-1. **Trocar a logo** do sistema (versão completa e versão ícone) por uma marca de sua escolha.
-2. **Trocar a marca d'água** do PDF pela logo da nova marca, mantendo a opacidade baixa.
+A marca de destino é a **Vertex**, e as três artes já estão prontas em **`marca-nova/`**. Você não precisa desenhar nada.
+
+1. **Trocar a logo** do sistema (versão completa e versão ícone) pela logo da Vertex.
+2. **Trocar a marca d'água** do PDF pela arte de marca d'água da Vertex, mantendo a opacidade baixa.
 3. **Criar os testes Playwright** em `tests/e2e/`, gerados com `npm run codegen`.
 
 ### Passo a passo
@@ -313,12 +330,14 @@ npx openspec list --specs
 npx openspec show brand-identity --type spec
 ```
 
+Abra também `marca-nova/README.md` e as três artes que você vai aplicar.
+
 **3. Criar a proposta no OpenSpec**
 
 No seu agente, rode o comando de proposta descrevendo a mudança. Por exemplo, no Claude Code:
 
 ```
-/opsx:propose trocar a logo do sistema e a marca d'agua do PDF pela nova marca
+/opsx:propose trocar a marca do sistema de Orbita para Vertex, usando as artes da pasta marca-nova
 ```
 
 > No Codex use `$openspec-propose`. No Gemini CLI, `/opsx:propose`.
@@ -339,7 +358,13 @@ npx openspec validate --all --strict
 /opsx:apply
 ```
 
-Ou implemente manualmente: substitua as artes em `src/assets/brand/` e ajuste `src/brand/brand.ts`.
+Ou implemente manualmente: copie as três artes de `marca-nova/` para `src/assets/brand/` e ajuste `src/brand/brand.ts`.
+
+```bash
+cp marca-nova/logo-full.svg  src/assets/brand/logo-full.svg
+cp marca-nova/logo-icon.svg  src/assets/brand/logo-icon.svg
+cp marca-nova/watermark.svg  src/assets/brand/watermark.svg
+```
 
 **6. Conferir**
 
@@ -350,9 +375,10 @@ npm run build
 
 Suba a aplicação e verifique:
 
-- logo completa nova com a sidebar expandida;
-- ícone novo com a sidebar recolhida;
-- PDF das duas páginas com a nova marca d'água em opacidade baixa.
+- logo completa da Vertex com a sidebar expandida;
+- ícone da Vertex com a sidebar recolhida;
+- PDF das duas páginas com a marca d'água da Vertex em opacidade baixa;
+- nome da marca atualizado na tela inicial, no certificado e no rodapé do PDF.
 
 **7. Criar os testes com codegen**
 
@@ -393,7 +419,7 @@ Descreva no PR o que mudou, anexe uma captura das telas e um PDF gerado.
 | Critério | O que é avaliado |
 | --- | --- |
 | **Uso do OpenSpec** | A mudança foi proposta, revisada, aplicada e arquivada pelo fluxo; as specs descrevem comportamento, não implementação |
-| **Troca da marca** | Logo completa, ícone e marca d'água substituídos de forma consistente, a partir do ponto único de configuração |
+| **Troca da marca** | As três artes da Vertex aplicadas de forma consistente, a partir do ponto único de configuração, sem alterar componentes |
 | **Marca d'água** | Presente em todas as páginas do PDF, centralizada e com opacidade baixa que não atrapalha a leitura |
 | **Testes Playwright** | Cobrem sidebar, navegação e download do PDF; passam com `npm run test:e2e` |
 | **Qualidade** | `npm run typecheck` e `npm run build` sem erros; commits claros; sem código morto |
