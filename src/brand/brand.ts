@@ -33,7 +33,7 @@ export interface Brand {
 }
 
 export const brand: Brand = {
-  name: 'Orbita',
+  name: 'Vertex',
   tagline: 'Mini sistema de demonstracao para o teste pratico.',
   logoFull,
   logoIcon,
