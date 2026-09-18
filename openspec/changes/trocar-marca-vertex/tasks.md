@@ -19,10 +19,10 @@
 
 ## 4. Testes Playwright
 
-- [ ] 4.1 Gravar com `npm run codegen` e salvar `tests/e2e/sidebar.spec.ts`: recolher e expandir alterna `brand-logo-full` e `brand-logo-icon`, o `alt` contem "Vertex" e o estado recolhido persiste apos recarregar; verificar com `npm run test:e2e`
-- [ ] 4.2 Gravar e salvar `tests/e2e/navegacao.spec.ts`: `nav-inicio`, `nav-relatorio` e `nav-certificado` exibem `page-*` e a URL correspondente, e a tela Inicio exibe "Vertex"; verificar com `npm run test:e2e`
-- [ ] 4.3 Gravar e salvar `tests/e2e/pdf.spec.ts`: `generate-pdf` dispara um download com sufixo `.pdf` nas telas Relatorio e Certificado; verificar com `npm run test:e2e`
-- [ ] 4.4 Refinar o codigo gerado pelo codegen (seletores por `data-testid`, `test.describe` por area, sem passos redundantes) e verificar que a suite inteira passa com `npm run test:e2e`
+- [x] 4.1 Gravar com `npm run codegen` e salvar `tests/e2e/sidebar.spec.ts`: recolher e expandir alterna `brand-logo-full` e `brand-logo-icon`, o `alt` contem "Vertex" e o estado recolhido persiste apos recarregar; verificar com `npm run test:e2e`
+- [x] 4.2 Gravar e salvar `tests/e2e/navegacao.spec.ts`: `nav-inicio`, `nav-relatorio` e `nav-certificado` exibem `page-*` e a URL correspondente, e a tela Inicio exibe "Vertex"; verificar com `npm run test:e2e`
+- [x] 4.3 Gravar e salvar `tests/e2e/pdf.spec.ts`: `generate-pdf` dispara um download com sufixo `.pdf` nas telas Relatorio e Certificado; verificar com `npm run test:e2e`
+- [x] 4.4 Refinar o codigo gerado pelo codegen (seletores por `data-testid`, `test.describe` por area, sem passos redundantes) e verificar que a suite inteira passa com `npm run test:e2e`
 
 ## 5. Qualidade e contexto
 
